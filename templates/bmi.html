@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рассчитать BMI</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Рассчитать индекс массы тела (BMI)</h2>
+        <form method="POST" action="{{ url_for('bmi') }}">
+            <div class="form-group">
+                <label for="weight">Вес (в кг):</label>
+                <input type="number" class="form-control" id="weight" name="weight" required placeholder="Например, 70">
+            </div>
+            <div class="form-group">
+                <label for="height">Рост (в метрах):</label>
+                <input type="number" step="0.01" class="form-control" id="height" name="height" required placeholder="Например, 1.75">
+            </div>
+            <button type="submit" class="btn btn-primary">Рассчитать</button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">На главную</a>
+        </form>
+    </div>
+</body>
+</html>

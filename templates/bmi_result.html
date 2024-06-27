@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результат BMI</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container mt-5 text-center">
+        <h2>Ваш индекс массы тела (BMI): {{ bmi | round(2) }}</h2>
+        <p>Категория: {{ category }}</p>
+        <a href="{{ url_for('bmi') }}" class="btn btn-primary">Рассчитать снова</a>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">На главную</a>
+    </div>
+</body>
+</html>

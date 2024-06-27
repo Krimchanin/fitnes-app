@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Журнал тренировок</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Журнал тренировок</h2>
+        <form method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="date">Дата:</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="exercise_type">Тип тренировки:</label>
+                <input type="text" class="form-control" id="exercise_type" name="exercise_type" required>
+            </div>
+            <div class="form-group">
+                <label for="duration">Длительность (в минутах):</label>
+                <input type="number" class="form-control" id="duration" name="duration" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+        <h3 class="mt-5">Все тренировки</h3>
+        <ul class="list-group mt-3">
+            {% for workout in workouts %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ workout[0] }} - {{ workout[1] }} - {{ workout[2] }} минут
+                <a href="{{ url_for('delete_workout', index=loop.index0) }}" class="btn btn-danger btn-sm">Удалить</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary mt-4">Вернуться в меню</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

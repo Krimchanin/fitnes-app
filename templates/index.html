@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фитнес-приложение</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="{% if dark_theme %}dark-theme{% endif %}">
+    <div class="container mt-5">
+        <h2>Добро пожаловать в фитнес-приложение!</h2>
+        <div class="list-group mt-4">
+            <a href="{{ url_for('bmi') }}" class="list-group-item list-group-item-action">Рассчитать индекс массы тела (BMI)</a>
+            <a href="{{ url_for('workout_log') }}" class="list-group-item list-group-item-action">Вести журнал тренировок</a>
+            <a href="{{ url_for('calorie_calculator') }}" class="list-group-item list-group-item-action">Калькулятор калорий</a>
+            <a href="{{ url_for('exercise_planner') }}" class="list-group-item list-group-item-action">Планировщик упражнений</a>
+        </div>
+        <div align="center">
+            <p class="dop">Приложение создано в рамках конкурса «Coding Champions: чемпион программирования на языке Python - 2024» (базовый уровень) <span style="color:#1e90ff;">Алексеем Виноградовым</span></p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
